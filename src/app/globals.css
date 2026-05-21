@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Complete Dark Mode Client UI Implementation Plan (Brown Only) */
+  --bg-darkest: #0D0B0A;
+  --bg-dark: #161210;
+  --bg-mid: #1E1915;
+  --bg-light: #262019;
+  
+  --border: #3D2E20;
+  --border-light: #5C4530;
+  
+  --text-primary: #F5E6D3;
+  --text-secondary: #C4A882;
+  --text-muted: #8B7355;
+  --text-disabled: #5C4D3D;
+  
+  --brown-50: #1A1209;
+  --brown-100: #2D1F0F;
+  --brown-200: #4A3418;
+  --brown-300: #6B4E2C;
+  --brown-400: #8B6B3D;
+  --brown-500: #A8854A;
+  --brown-600: #C4A060;
+  --brown-700: #D9B97A;
+  --brown-800: #EBD4A0;
+  --brown-900: #F5E6D3;
+  
+  --success: #7A9E6B;
+  --warning: #B8954E;
+  --danger: #B85450;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-darkest);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* Base 16px to prevent iOS zoom */
+}
+
+h1, h2, h3, h4, .font-serif, .display, .price-large {
+  font-family: var(--font-playfair), serif;
+}
+
+/* Base input styles */
+input, textarea, select {
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px; /* Prevent iOS zoom */
+}
+
+::placeholder {
+  color: var(--text-disabled);
+}
+
+@layer base {
+  ::selection {
+    @apply bg-brown-300 text-cafe-bg;
+  }
+}
+
+@layer components {
+  /* Remove old glass-panel class as we are no longer using translucent overlays with blur in the same way,
+     except for specific modals. The instructions specify solid colors based on elevation. */
+     
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
